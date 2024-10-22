@@ -23,7 +23,7 @@ $professores = $professorDAO->getAll();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body class="bg-gray-100 p-6">
-    <h1 class="text-3xl font-bold mb-6">Tabelas de Professores, Alunos e Disciplinas</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center">Tabelas de Professores, Alunos e Disciplinas</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="bg-white rounded-lg shadow-md p-4">
