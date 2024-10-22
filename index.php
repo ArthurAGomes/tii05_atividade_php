@@ -19,58 +19,95 @@ $professores = $professorDAO->getAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index - Sistema Acadêmico</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
-<body>
-    <h1>Tabelas de Professores, Alunos e Disciplinas</h1>
+<body class="bg-gray-100 p-6">
+    <h1 class="text-3xl font-bold mb-6">Tabelas de Professores, Alunos e Disciplinas</h1>
 
-    <h2>Professores</h2>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Disciplina ID</th>
-        </tr>
-        <?php foreach ($professores as $professor): ?>
-            <tr>
-                <td><?= $professor->getId(); ?></td>
-                <td><?= $professor->getNome(); ?></td>
-                <td><?= $professor->getDisciplinaId(); ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-4">
+            <h2 class="text-xl font-semibold">Professores</h2>
+            <div class="overflow-x-auto">
+                <table class="border-collapse border border-gray-300 w-full mt-2">
+                    <thead>
+                        <tr>
+                            <th class="border border-gray-300 px-2 py-1">ID</th>
+                            <th class="border border-gray-300 px-2 py-1">Nome</th>
+                            <th class="border border-gray-300 px-2 py-1">Disciplina ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($professores as $professor): ?>
+                            <tr>
+                                <td class="border border-gray-300 px-2 py-1"><?= $professor->getId(); ?></td>
+                                <td class="border border-gray-300 px-2 py-1"><?= $professor->getNome(); ?></td>
+                                <td class="border border-gray-300 px-2 py-1"><?= $professor->getDisciplinaId(); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <h2>Alunos</h2>
-    <table border="1">
-        <tr>
-            <th>Matrícula</th>
-            <th>Nome</th>
-            <th>Ações</th>
-        </tr>
-        <?php foreach ($alunos as $aluno): ?>
-            <tr>
-                <td><?= $aluno->getMatricula(); ?></td>
-                <td><?= $aluno->getNome(); ?></td>
-                <td><a href="detalhes_aluno.php?matricula=<?= $aluno->getMatricula(); ?>">Detalhes</a></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+        <div class="bg-white rounded-lg shadow-md p-4">
+            <h2 class="text-xl font-semibold">Alunos</h2>
+            <div class="overflow-x-auto">
+                <table class="border-collapse border border-gray-300 w-full mt-2">
+                    <thead>
+                        <tr>
+                            <th class="border border-gray-300 px-2 py-1">Matrícula</th>
+                            <th class="border border-gray-300 px-2 py-1">Nome</th>
+                            <th class="border border-gray-300 px-2 py-1">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($alunos as $aluno): ?>
+                            <tr>
+                                <td class="border border-gray-300 px-2 py-1"><?= $aluno->getMatricula(); ?></td>
+                                <td class="border border-gray-300 px-2 py-1"><?= $aluno->getNome(); ?></td>
+                                <td class="border border-gray-300 px-2 py-1">
+                                    <a href="detalhes_aluno.php?matricula=<?= $aluno->getMatricula(); ?>" class="text-blue-600 hover:text-blue-800">
+                                        <i class="fas fa-info-circle"></i> Detalhes
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <h2>Disciplinas</h2>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Carga Horária</th>
-            <th>Ações</th>
-        </tr>
-        <?php foreach ($disciplinas as $disciplina): ?>
-            <tr>
-                <td><?= $disciplina->getId(); ?></td>
-                <td><?= $disciplina->getNome(); ?></td>
-                <td><?= $disciplina->getCargaHoraria(); ?></td>
-                <td><a href="detalhes_disciplina.php?id=<?= $disciplina->getId(); ?>">Detalhes</a></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    
+        <div class="bg-white rounded-lg shadow-md p-4">
+            <h2 class="text-xl font-semibold">Disciplinas</h2>
+            <div class="overflow-x-auto">
+                <table class="border-collapse border border-gray-300 w-full mt-2">
+                    <thead>
+                        <tr>
+                            <th class="border border-gray-300 px-2 py-1">ID</th>
+                            <th class="border border-gray-300 px-2 py-1">Nome</th>
+                            <th class="border border-gray-300 px-2 py-1">Carga Horária</th>
+                            <th class="border border-gray-300 px-2 py-1">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($disciplinas as $disciplina): ?>
+                            <tr>
+                                <td class="border border-gray-300 px-2 py-1"><?= $disciplina->getId(); ?></td>
+                                <td class="border border-gray-300 px-2 py-1"><?= $disciplina->getNome(); ?></td>
+                                <td class="border border-gray-300 px-2 py-1"><?= $disciplina->getCargaHoraria(); ?></td>
+                                <td class="border border-gray-300 px-2 py-1">
+                                    <a href="detalhes_disciplina.php?id=<?= $disciplina->getId(); ?>" class="text-blue-600 hover:text-blue-800">
+                                        <i class="fas fa-info-circle"></i> Detalhes
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,10 +1,9 @@
 <?php
-
 class Disciplina {
     private $id;
     private $nome;
     private $cargaHoraria;
-    // Implemente o array de alunos que será utilizado pela entidade Disciplina
+    private $alunos = []; 
 
     public function __construct($id, $nome, $cargaHoraria) {
         $this->id = $id;
@@ -32,6 +31,13 @@ class Disciplina {
         $this->cargaHoraria = $cargaHoraria;
     }
 
-    // Implemente os getters e setters para as ler e inserir um array de alunos no objeto discplina
+    public function getAlunos() {
+        return $this->alunos;
+    }
+
+    public function setAlunos(array $alunos) {
+        $this->alunos = $alunos;
+    }
 }
+
 ?>
